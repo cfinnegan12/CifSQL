@@ -4,6 +4,9 @@ using CifSQL.Models;
 using ATCOcif;
 using System.Linq;
 using System.Collections.Generic;
+using System.Configuration;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CifSQL
 {
@@ -11,11 +14,17 @@ namespace CifSQL
     {
         static void Main(string[] args)
         {
-            string filepath = @"FILL_PATH_GOES_HERE";
-            ATCOcifParser parser = new ATCOcifParser(filepath);
 
-            using CifSQLContext context = new CifSQLContext();
+            //Parsing cif file into Objects
+            ATCOcifParser parser = new ATCOcifParser(ConfigurationManager.AppSettings.Get("filePath"));
 
+            //Create database with the given connection string
+            var options = new DbContextOptionsBuilder<CifSQLContext>();
+            options.UseSqlServer(ConfigurationManager.ConnectionStrings["sql-server"].ConnectionString);
+            using CifSQLContext context = new CifSQLContext(options.Options);
+            context.Database.EnsureCreated();
+
+            //Using the parsed objects for creating Entities
             int i = 0;
             foreach (LocationRecord locationRecord in parser.Locations.Values)
             {
@@ -75,6 +84,7 @@ namespace CifSQL
                 i++;
             }
             context.SaveChanges();
+            Console.WriteLine("Complete");
         }
 
         private static Stop StopFromRecord(StopRecord stop, CifSQLContext context)
@@ -89,5 +99,6 @@ namespace CifSQL
             };
             return s;
         }
+
     }
 }
