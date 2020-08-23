@@ -76,10 +76,10 @@ namespace CifSQL
                     Stops = new List<Stop>()
                 };
 
-                j.Stops.Add(StopFromRecord(journey.Origin, context));
+                j.Stops.Add(StopFromRecord(journey.Origin, context, 'O'));
                 foreach (StopRecord stop in journey.IntermediateRecords)
-                    j.Stops.Add(StopFromRecord(stop, context));
-                j.Stops.Add(StopFromRecord(journey.Destination, context));
+                    j.Stops.Add(StopFromRecord(stop, context, 'I'));
+                j.Stops.Add(StopFromRecord(journey.Destination, context, 'D'));
                 context.Journeys.Add(j);
                 i++;
             }
@@ -87,7 +87,7 @@ namespace CifSQL
             Console.WriteLine("Complete");
         }
 
-        private static Stop StopFromRecord(StopRecord stop, CifSQLContext context)
+        private static Stop StopFromRecord(StopRecord stop, CifSQLContext context, char stoptype = 'I')
         {
             int locationid = context.Locations
                 .Where(l => l.ShortForm == stop.Location).FirstOrDefault().Id;
@@ -95,7 +95,8 @@ namespace CifSQL
             Stop s = new Stop
             {
                 LocationId = locationid,
-                Time = new TimeSpan(0, stop.Time.Hours, stop.Time.Minutes, stop.Time.Seconds)
+                Time = new TimeSpan(0, stop.Time.Hours, stop.Time.Minutes, stop.Time.Seconds),
+                StopType = stoptype
             };
             return s;
         }

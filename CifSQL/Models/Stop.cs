@@ -16,5 +16,8 @@ namespace CifSQL.Models
         public TimeSpan Time { get; set; }
         public int JourneyId { get; set; }
         public Journey Journey { get; set; }
+        
+        //O = Origin, I = Intermediate, D = Destination
+        public char StopType { get; set; }
     }
 }

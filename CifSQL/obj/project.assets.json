@@ -5870,21 +5870,17 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ciara\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ciara\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ciara\\source\\repos\\CifSQL\\CifSQL\\CifSQL.csproj",
+      "projectUniqueName": "C:\\Users\\ciara\\Source\\Repos\\cfinnegan12\\CifSQL\\CifSQL\\CifSQL.csproj",
       "projectName": "CifSQL",
-      "projectPath": "C:\\Users\\ciara\\source\\repos\\CifSQL\\CifSQL\\CifSQL.csproj",
+      "projectPath": "C:\\Users\\ciara\\Source\\Repos\\cfinnegan12\\CifSQL\\CifSQL\\CifSQL.csproj",
       "packagesPath": "C:\\Users\\ciara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ciara\\source\\repos\\CifSQL\\CifSQL\\obj\\",
+      "outputPath": "C:\\Users\\ciara\\Source\\Repos\\cfinnegan12\\CifSQL\\CifSQL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\ciara\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -5894,7 +5890,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/cfinnegan12/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {

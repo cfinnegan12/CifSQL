@@ -9,11 +9,9 @@ namespace CifSQL.Models
     {
 
         public int Id { get; set; }
-
         public int RouteId { get; set; }
         public Route Route { get; set; }
         public bool BankHolidays { get; set; }
-
         public bool Monday { get; set; }
         public bool Tuesday { get; set; }
         public bool Wednesday { get; set; }
@@ -21,7 +19,6 @@ namespace CifSQL.Models
         public bool Friday { get; set; }
         public bool Saturday { get; set; }
         public bool Sunday { get; set; }
-
         public ICollection<Stop> Stops { get; set; }
 
     }
