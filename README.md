@@ -27,4 +27,4 @@ Once your App.config has been filled in, navigate to project directory in the CL
 ```
 dotnet run
 ```
-
+After a few seconds, the console should output the progress of the process.
