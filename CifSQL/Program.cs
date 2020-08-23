@@ -24,7 +24,9 @@ namespace CifSQL
             using CifSQLContext context = new CifSQLContext(options.Options);
             context.Database.EnsureCreated();
 
-            //Using the parsed objects for creating Entities
+            ///////////////////Using the parsed objects for creating Entities/////////////////////
+
+            //Adding Locations
             int i = 0;
             foreach (LocationRecord locationRecord in parser.Locations.Values)
             {
@@ -40,6 +42,7 @@ namespace CifSQL
             }
             context.SaveChanges();
 
+            //Adding Routes
             i = 0;
             foreach (RouteDescription route in parser.Routes.Values)
             {
@@ -54,6 +57,7 @@ namespace CifSQL
             }
             context.SaveChanges();
 
+            //Adding Journeys & Stops
             i = 0;
             foreach (JourneyRecord journey in parser.Journeys)
             {
